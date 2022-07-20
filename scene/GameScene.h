@@ -9,6 +9,7 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
+#include"DebugCamera.h"
 
 /// <summary>
 /// ゲームシーン
@@ -47,6 +48,23 @@ class GameScene {
 	Audio* audio_ = nullptr;
 	DebugText* debugText_ = nullptr;
 
+	//テクスチャハンドル
+	uint32_t textureHandle_ = 0;
+
+	//3Dモデル
+	Model* model_ = nullptr;
+
+	//ワールドトランスフォーム
+	WorldTransform worldTransform_;
+
+	//ビュープロダクション
+	ViewProjection viewProjection_;
+
+	//デバッグカメラ
+	DebugCamera* debugCamera_ = nullptr;
+
+	//度からラジアンヘ変換
+	float DtoR(float d) { return MathUtility::PI / (100 / d); }
 	/// <summary>
 	/// ゲームシーン用
 	/// </summary>
